@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        
+        //entrada de dados
+        const nome = prompt('Digite seu nome Completo:');
+        document.body.innerHTML = `Seu nome é ${nome} <br />`;
+       
+        let letras = nome.length;
+        var seg_letra = nome.charAt(1);
+        var primeiro_indice = nome.indexOf('e');
+        var ultimo_indice = nome.lastIndexOf('e');
+        var tresLetras = nome.slice(-3);
+        var maiusculo = nome.toUpperCase();
+        var minusculo = nome.toLocaleLowerCase();
+        
+        //Saída de dados
+        document.body.innerHTML += `Seu nome tem <strong> ${letras} </strong><br />`;
+        document.body.innerHTML += `A segunda letra do seu nome é: <strong> ${seg_letra} </strong> <br />`
+        document.body.innerHTML += `Qual o primeiro índice da letra "E" no seu nome <strong> ${primeiro_indice} </strong> <br />`;
+        document.body.innerHTML += `Qual o último índice da letra E no seu nome <strong> ${ultimo_indice} </strong> <br />`;
+        document.body.innerHTML += `As últimas três letras do seu nome são <strong> ${tresLetras} </strong> <br />`;
+        document.body.innerHTML += `As palavras do seu nome são: <strong> ${nome.split(' ')} </strong> <br />`;
+        document.body.innerHTML += `Seu nome em maiusculo <strong> ${maiusculo} </strong> <br />`;
+        document.body.innerHTML += `Seu nome em minusculo <strong> ${minusculo} </strong> <br />`;
+
+        
+
+    </script>
+</body>
+</html>
