@@ -21,7 +21,6 @@ setTimeout(function(){
     console.log('Olá mundo!');
 }, 5000);
 
-
 //digite stop, ou ctrl + alt + M para dar stop
 
 //teste commit
