@@ -1,4 +1,6 @@
-//fução geradora, onde eu consigo a cada chamada receber um valor diferente
+//fução geradora, onde eu consigo a cada chamada receber um valor diferente,
+//Cada vez que eu chamar essa function ela me  manda um valor diferente, de acordo com a sequancia.
+//yield - equivale ao mesmo que o retunr, porem
 
 function* geradora1(){
     yield 'Valor 1';
