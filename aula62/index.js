@@ -5,6 +5,7 @@ const nomes = ['Eduardo','Felipe','Daniel'];
 
 //criando array com sprad, desta forma copio os dados do array nomes, porém evido deles serem referenciados,
 //desta maneira eles acabam sendo independentes e caso eu mude algo em um array não mudarei em outro.
+//MANEIRA PARA COPIAR ARRAY E NÃO DEIXAR POR REFERENCIAS - --------------------
 const novo2 = [...nomes];
 
 //Valor por referencia, quando junto um array com outro e caso altere um eu altero o outro tambem
@@ -26,6 +27,9 @@ console.log(novo2);
 
 /************************COMANDOS DO ARRAY*************************************** */
 const sobrenomes = ['Eduardo','Felipe','Daniel'];
+
+//maneira de criar array
+//const nomes = new Array('Eduardo', 'Felipe', 'Daniel');
 const removido = sobrenomes.shift();
 console.log(sobrenomes, removido);
 
