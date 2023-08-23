@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "app"></div>
+    <script type="module" src="/main.js"></script>
+
+    <script>
+        //nullish coalescing operator  -llidar com numeros nulos
+ /*       const idade =null;
+        document.body.innerText = 'Sua idade é: ' + (idade || 'não informado');
+*/
+        //objeto
+/*        const user = {
+            name: 'Felipe',
+            nickname: 'fedd',
+            idade:33,
+            address:{
+                street: 'Rua Itajai',
+                number: 176,
+            },
+        };
+*/
+        // desestruturação
+//        const address = user.address
+//        const {address, idade: age, nickname = 'Fernandes'} = user
+
+/*        document.body.innerText = JSON.stringify({address, age, nickname});
+
+        function mostrarIdade({ idade }){
+            return idade;
+        }
+*/
+        //rest operator
+        //const {name, nickname} = user;
+
+
+/*
+        const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+        //const [first, second, ...rest] = array
+        const [first, , third, ...rest] = array
+
+        document.body.innerText = JSON.stringify({first, third, rest})
+*/
+
+//SHORT SYNTAX - 
+/*
+        const name = 'Felipe';
+        const idade = 33;
+
+        const user = {
+            name: name, //pode  colocar assim
+            idade,      //ou assim, direto, isso é o mesmo que o de cima
+        };
+        document.body.innerText = JSON.stringify(user);
+*/
+
+        //Otional chaining: 
+        //colocando todas as condições dentro do if
+/*
+        const user = {
+            name: 'Felipe',
+            nickname: 'fedd',
+            idade:33,
+            address:{
+                street: 'Rua Itajai',
+                number: 176,
+            zip:{
+                code: '09607000',
+                city: 'Santo Andre'
+               }
+           },
+        };
+
+        document.body.innerText = user.address?.zip?.code ?? 'não informado';
+*/
+
+//METODOS DE ARRAY*******************
+//map, filter, every, some, find, findIndex, reduce
+    //map: transformo array em outro array mudando algo
+    const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ''];
+
+//    const novoArray = array
+//    .filter(item => item %2 != 0);
+//    .map(item => item * 10);
+//document.body.innerText = JSON.stringify(novoArray);
+
+//const todosItensSaoNumeros = array.every(item => typeof item === 'number');
+//document.body.innerText = JSON.stringify(todosItensSaoNumeros);
+
+/*
+const peloMenosUmItemENumero = array.some(item => {
+    return typeof item != 'number';
+})
+document.body.innerText = JSON.stringify(peloMenosUmItemENumero);
+  */
+ 
+  //retorna o valor
+ /* const par = array.find(item => item % 2 === 0);
+  document.body.innerText = JSON.stringify(par);
+*/
+
+  //retorna o indice
+ /* const par = array.findIndex(item => item % 2 === 0);
+  document.body.innerText = JSON.stringify(par);
+*/
+
+//reduce, quando quero criar algo novo
+/*const soma = array.reduce((acc, item) => {
+    return acc + item
+}, 0)
+
+document.body.innerText = JSON.stringify(soma);
+*/
+        //Templates Literais
+  /*      const name = 'Felipe';
+        const message = `Bem vindo, ${name}`;
+
+         document.body.innerText = message;
+*/
+
+
+//promisses
+//nem tudo na programação é executado em tempo real
+//assincronas são coisas que acontece em paralelo a execução,
+// o seja não fica esperando um retorno para exeutar
+
+/*
+const somaDoisNumeros = (a, b) => {
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(a + b);
+        //reject(a + b);
+    }, 2000);
+});
+}
+
+somaDoisNumeros(1, 2)
+    .then(soma => {
+        document.body.innerText = soma
+    })
+    .catch(err => {
+        console.log(err)
+    })
+*/
+/*
+fetch('http://api.github.com/users/diego3g')
+.then(response => {
+    return response.json();
+})
+.then(body => {
+    console.log(body)
+})
+.catch(err => {
+    console.log(err)
+})
+.finally(() => {
+    console.log('deu')
+})
+*/
+
+//importar e exportar function
+import { sum } from './sum'
+console.log(sum(1, 2)
+
+
+
+</script>
+
+
+
+</body>
+</html>
