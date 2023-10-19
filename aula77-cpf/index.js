@@ -33,7 +33,7 @@ function ValidaCPF (cpfEnviado){
     Object.defineProperty(this, 'cpfLimpo', {
         enumerable: true,
         get: function(){
-            //retira oque não é numero do cpf
+            //retira o que não é numero do cpf
             return cpfEnviado.replace(/\D+/g, '');
         }
     });
@@ -43,31 +43,47 @@ function ValidaCPF (cpfEnviado){
 ValidaCPF.prototype.valida = function(){
     if(typeof this.cpfLimpo === 'undefined') return false; //verifica o tipo
     if(this.cpfLimpo.length !== 11) return false; //verifica se tem 11 digitos
-  
+    if(this.isSequencia()) return false;//verificando se é uma sequencia de umeros iguais
+
     const cpfParcial = this.cpfLimpo.slice(0, -2);
     const digito1 = this.criaDigito(cpfParcial);
+    const digito2 = this.criaDigito(cpfParcial + digito1);
 
-    return true;
+    const novoCpf = cpfParcial + digito1 + digito2;
+    
+    return novoCpf === this.cpfLimpo;
 };
 
+//
 ValidaCPF.prototype.criaDigito = function (cpfParcial){
     //local onde sera feito o calculo do cpf
     const cpfArray = Array.from(cpfParcial);
     
-    let regressivo = cpf.length + 1;
-    const digito = cpfArray.reduce((ac, val) => {
-        console.log(regressivo, val, regressivo * val);
+    let regressivo = cpfArray.length + 1;
+    let total = cpfArray.reduce((ac, val) => {
+        ac += (regressivo * Number(val));
         regressivo--;
         return ac;
      }, 0);
+     const digito = 11 - (total % 11);
+     return digito > 9 ? '0' : String(digito);
 };
 
-    
+//valida se foi colocar somente um numero no cpf
+  ValidaCPF.prototype.isSequencia = function() {
+    const sequencia = this.cpfLimpo[0].repeat(this.cpfLimpo.length);
+    return sequencia === this.cpfLimpo;
+  };  
    
 
 //criando e chamando functions
-const cpf = new ValidaCPF('705.484.450-52');
-console.log(cpf.valida());
- 
+//const cpf = new ValidaCPF('111.111.111-12');
+const cpf = new ValidaCPF('070.987.720-03');
 
+if(cpf.valida()){
+    console.log('Cpf Valido');
+}
+else{
+    console.log('Cpf inválido');
+}
  
